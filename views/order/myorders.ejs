@@ -1,0 +1,44 @@
+<%- include('../partials/header'); %>
+
+    <div class="container">
+
+
+        <header class.<div class="jumbotron">
+            <h1 class="display-3">E-cart</h1>
+            <p>
+                Welcome
+                <%= currentUser.username %>
+            </p>
+            <!-- <p class="lead">
+                <a class="btn btn-primary btn-lg" href="../campgrounds/new" role="button">Add new Component</a>
+            </p> -->
+        </header>
+        <h2>My Orders</h2>
+        <div class="row text-centre clearfix">
+            <% showfromit.forEach(function (valueToCallTheArrayElement){ %>
+
+
+                <div class="center col-sm-6">
+                    <p>
+                        Your order ID is:
+                        <%= valueToCallTheArrayElement._id %>
+                    </p>
+                    <p>
+                        Name:
+                        <%=valueToCallTheArrayElement.firstname %>
+                            <%= valueToCallTheArrayElement.lastname %>
+                    </p>
+                    <p>
+                        address:
+                        <%= valueToCallTheArrayElement.address %>
+                    </p>
+                    <p>
+
+                    </p>
+
+                </div>
+        </div>
+        <%  })  %>
+
+            <%- include('../partials/footer'); %>
+    </div>

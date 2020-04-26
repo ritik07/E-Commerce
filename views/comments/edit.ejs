@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+    <h1>
+        Edit
+    </h1>
+
+    <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <div style="width: 30%; margin-top: 25px auto;">
+            <div class="form-group">
+                <input class="form-control" type="text" name="Comment[text]" value="<%=comment.text%>">
+            </div>
+            <button class="btn btn-success">submit</button>
+
+        </div>
+
+    </form>
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,51 @@
+<%- include('../partials/header'); %>
+
+    <div class="container">
+
+
+        <header class.<div class="jumbotron">
+            <h1 class="display-3">E-cart</h1>
+            <p>
+                Providing a door step service
+            </p>
+            <!-- <p class="lead">
+                <a class="btn btn-primary btn-lg" href="../campgrounds/new" role="button">Add new Component</a>
+            </p> -->
+
+
+        </header>
+
+        <div class="row text-centre clearfix">
+            <% showfromit.forEach(function (valueToCallTheArrayElement){ %>
+
+
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="<%= valueToCallTheArrayElement.image %> ">
+                    </div>
+                    <div class="caption text-centre">
+                        <h4>
+                            <%= valueToCallTheArrayElement.name %>
+                        </h4>
+                    </div>
+                    <p>
+                        <a href="/campgrounds/<%= valueToCallTheArrayElement._id %> " class="btn btn-primary">
+                            More info
+                        </a>
+                    </p>
+                    <p class="pull-left">
+                        Rs
+                        <%= valueToCallTheArrayElement.price %>
+                            <br>
+                    </p>
+                    <p>
+                        price per
+                        <%= valueToCallTheArrayElement.quantity %>
+                    </p>
+                </div>
+                <%});%>
+        </div>
+
+        <%- include('../partials/footer'); %>
+    </div>
