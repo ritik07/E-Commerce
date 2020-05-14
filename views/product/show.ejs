@@ -1,0 +1,45 @@
+<%- include("../partials/header"); %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">E-Cart</p>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<%= foundproduct.image %>" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">
+                            Rs.
+                            <%= foundproduct.price %>
+
+                                <p>
+                                    <%= foundproduct.quantity %>
+                                </p>
+                        </h4>
+                        <a class="btn btn-success pull-right" href="/campgrounds/category/<%= id %>/<%= foundproduct._id %>/address">Buy</a>
+                        <h2>
+                            <%= foundproduct.name %>
+                        </h2>
+                        <h4 style="font-style: italic;">
+                            A Quality product by-
+                            <%= foundproduct.shopname %>
+                        </h4>
+                        <p>
+                            <%= foundproduct.description %>
+                        </p>
+                        <% if(currentUser && foundproduct.author.id.equals(currentUser._id) || currentUser && currentUser.isadmin == 1){%>
+                            <a href="/campgrounds/category/<%=id%>/<%=foundproduct._id%>/edit" class="btn btn-warning">Edit Product</a>
+                            <form action="/campgrounds/category/<%=id%>/<%=foundproduct._id%>/?_method=DELETE" method="POST">
+                                <button class="btn btn-danger" style="margin-top: 20px;">
+                           Remove Product
+                       </button>
+                            </form>
+                            <%  } %>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

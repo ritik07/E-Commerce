@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.img-fit {
+    width: 100%;
+}
+
 .thumbnail {
     padding: 0;
 }
@@ -15,4 +19,13 @@
     width: 50%;
     border: 3px solid green;
     padding: 10px;
+}
+
+.box {
+    width: 40px;
+    text-align: center;
+}
+
+.Selected {
+    color: rgb(0, 0, 0);
 }

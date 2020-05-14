@@ -3,49 +3,90 @@
     <div class="container">
 
 
-        <header class.<div class="jumbotron">
+        <header class="jumbotron">
             <h1 class="display-3">E-cart</h1>
             <p>
                 Providing a door step service
             </p>
-            <!-- <p class="lead">
-                <a class="btn btn-primary btn-lg" href="../campgrounds/new" role="button">Add new Component</a>
-            </p> -->
+            <% if(currentUser && currentUser.isadmin == 1 || currentUser && currentUser.ismanufacture == 1){%>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="../campgrounds/new" role="button">Add new Component</a>
+                </p>
+                <%  } %>
+                    <% if(currentUser && currentUser.isadmin == 1){%>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="../campgrounds/category/new" role="button">Add new Category</a>
+                        </p>
+                        <%  } %>
 
 
         </header>
-
-        <div class="row text-centre clearfix">
-            <% showfromit.forEach(function (valueToCallTheArrayElement){ %>
-
-
-                <div class="col-md-3 col-sm-6">
-
-                    <div class="thumbnail">
-                        <img class="img-responsive" src="<%= valueToCallTheArrayElement.image %> ">
+        <!-- category section -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex d-xl-flex align-items-center align-items-xl-center" style="background-color: #2f9acc;height: 70px;">
+                        <div class="d-xl-flex justify-content-xl-center align-items-xl-center">
+                            <div class="d-xl-flex justify-content-xl-center align-items-xl-center">
+                                <p style="font-size: 20px;margin-bottom: 0px;color: rgb(255,255,255);margin-right: 16px;">
+                                    <a style="text-decoration: none;color: white;" href="/campgrounds">
+                                        Grocery 
+                                    </a>
+                                </p>
+                                <% foundcategory.forEach(function (value) {%>
+                                    <p style="font-size: 20px;margin-bottom: 0px;color: rgb(255,255,255);margin-right: 16px;">
+                                        <a style="text-decoration: none;color: white;" href="/campgrounds/category/<%=value._id%>/">
+                                            <%= value.name %>
+                                        </a>
+                                    </p>
+                                    <% }) %>
+                            </div>
+                        </div>
                     </div>
-                    <div class="caption text-centre">
-                        <h4>
-                            <%= valueToCallTheArrayElement.name %>
-                        </h4>
-                    </div>
-                    <p>
-                        <a href="/campgrounds/<%= valueToCallTheArrayElement._id %> " class="btn btn-primary">
-                            More info
-                        </a>
-                    </p>
-                    <p class="pull-left">
-                        Rs
-                        <%= valueToCallTheArrayElement.price %>
-                            <br>
-                    </p>
-                    <p>
-                        price per
-                        <%= valueToCallTheArrayElement.quantity %>
-                    </p>
                 </div>
-                <%});%>
-        </div>
+            </div>
+        </section>
 
-        <%- include('../partials/footer'); %>
+
+        <section>
+            <div class="container" style="margin-top: 10px;">
+                <div class="row">
+                    <% showfromit.forEach(function (valueToCallTheArrayElement){ %>
+                        <div class="col-xl-3" style="margin-bottom: 10px;">
+                            <div>
+                                <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                    <img src="<%= valueToCallTheArrayElement.image %>" style="width: 300px;height: 250px;">
+                                </div>
+                                <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                    <h1 style="font-size: 26px;">
+                                        <%= valueToCallTheArrayElement.name %>
+                                    </h1>
+                                </div>
+                                <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                    <h1 style="font-size: 15px;color: rgb(84,84,84);">A Product By
+                                        <%= valueToCallTheArrayElement.shopname %>
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-items-xl-center" style="margin-bottom: 3px;font-size: 26px;">RS
+                                        <%= valueToCallTheArrayElement.price %>
+
+                                    </p>
+
+                                </div>
+                                <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                    <p>
+                                        <a href="/campgrounds/<%= valueToCallTheArrayElement._id %>" style="background-color: rgb(47,154,204);" class="btn btn-primary">
+                                            More info
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <%});%>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <%- include('../partials/footer'); %>

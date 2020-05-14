@@ -1,13 +1,19 @@
-var mongoose = require('mongoose')
+var mongoose = require("mongoose");
 
-var campSchema = new mongoose.Schema({
+var productSchema = new mongoose.Schema({
     name: String,
     image: String,
     description: String,
     price: Number,
     quantity: String,
     shopname: String,
-    phonenumber: Number,
+    phonenumber: String,
+    category: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "category"
+        }
+    },
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +31,4 @@ var campSchema = new mongoose.Schema({
     ],
 });
 
-module.exports = mongoose.model("Campground", campSchema);
+module.exports = mongoose.model("product", productSchema);

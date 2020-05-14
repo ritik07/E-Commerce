@@ -1,0 +1,54 @@
+<%- include('../partials/header') %>
+    <h1>confirmation
+
+    </h1>
+
+
+    <form action="/verification/<%=id%>/?_method=PUT" method="POST">
+        <div style="width: 30%; margin-top: 25px auto;">
+            <label class="col-form-label">
+                User Name
+            </label>
+            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-content-center align-items-center">
+                <input class="form-group form-control" type="text" name="updates[username]" value="<%=userfound.username%>">
+            </div>
+            <label class="col-form-label">
+                Admin
+            </label>
+            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-content-center align-items-center">
+                <input class="form-group form-control" type="text" name="updates[isadmin]" value="<%=userfound.isadmin%>">
+            </div>
+            <label class="col-form-label">
+                Manufacture
+            </label>
+            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-content-center align-items-center">
+                <input id="idManufacture" class="form-group form-control" type="text" name="updates[ismanufacture]" value="<%=userfound.ismanufacture%>">
+            </div>
+
+            <label class="col-form-label">
+                Delivery Boy
+            </label>
+            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-content-center align-items-center">
+                <input class="form-group form-control" type="text" name="updates[isdboy]" value="<%=userfound.isdboy%>">
+            </div>
+
+
+        </div>
+        <button class="btn btn-success">CONFIRM</button>
+    </form>
+    <script>
+        // $(document).ready(function() {
+        //     var toggleText = $("#idManufacture").val("0");
+        //     $("#btnManufacture").click(function() {
+        //         if ($("#idManufacture").val() == 0) {
+        //             toggleText = $("#idManufacture").val();
+        //             $("#idManufacture").val('1');
+
+        //         } else {
+        //             $("#idManufacture").val('0');
+
+        //         }
+        //     });
+
+        // });
+    </script>

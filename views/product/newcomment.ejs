@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+    <h1>
+        Add new comment to
+        <%= foundproduct.name %>
+    </h1>
+    <form action="/campgrounds/category/<%=foundcategory._id%>/<%=foundproduct._id %>/comments" method="POST">
+        <div style="width: 30%; margin-top: 25px auto;">
+            <div class="form-group">
+                <input class="form-control" type="text" name="Comment[text]" placeholder="Description">
+            </div>
+            <button class="btn btn-success">submit</button>
+
+        </div>
+
+    </form>
+
+    <%- include('../partials/footer') %>

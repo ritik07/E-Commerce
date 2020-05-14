@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>Review product</h2>
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<%= itemid.image %>" alt="">
+                    <div class="caption-full">
+
+
+                        <h4 class="pull-right">
+                            Rs.
+                            <%= itemid.price  %>
+                        </h4>
+
+
+                        <p>
+                            <%= itemid.quantity %>
+                        </p>
+                        <h2>
+                            <%= itemid.name %>
+                        </h2>
+                        <h6 style="font-style: italic;">
+                            A Quality product by-
+                            <%= itemid.shopname %>
+                        </h6>
+                        <h6>
+                            <%= itemid.description %>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-9">
+                <h1>Please Fill Your Address</h1>
+                <form action="/campgrounds/category/<%=id%>/<%=itemid._id%>/address" method="POST">
+                    <div style="width: 30%; margin-top: 25px auto;">
+                        <div class="form-group">
+                            <label for="">First Name</label>
+                            <input class="form-control" type="text" name="firstname" placeholder="First Name">
+                            <label for="">Last Name</label>
+                            <input class="form-control" type="text" name="lastname" placeholder="Last Name">
+                            <label for="">Adress</label>
+                            <input class="form-control" type="text" name="address" placeholder="Address Line">
+                            <label for="">Land Mark</label>
+                            <input class="form-control" type="text" name="landmark" placeholder="Land Mark">
+                            <label for="">Phone Number</label>
+                            <input class="form-control" type="number" name="phonenumber" placeholder="PhoneNumber">
+                        </div>
+                        <button class="btn btn-success">Order</button>
+
+                    </div>
+
+                </form>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <%- include('../partials/footer') %>

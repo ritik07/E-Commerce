@@ -1,0 +1,100 @@
+<%- include('../partials/header'); %>
+
+
+    <div class="container">
+
+
+        <header class.<div class="jumbotron">
+            <h1 class="display-3">E-cart</h1>
+            <p>
+                Providing a door step service
+            </p>
+
+            <% if(currentUser && currentUser.isadmin == 1 || currentUser && currentUser.ismanufacture == 1 ){%>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="../<%= id %>/addnew/new" role="button">Add new Component</a>
+                </p>
+                <%  } %>
+
+
+        </header>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex d-xl-flex align-items-center align-items-xl-center" style="background-color: #2f9acc;height: 70px;">
+                        <div class="d-xl-flex justify-content-xl-center align-items-xl-center">
+                            <div class="d-xl-flex justify-content-xl-center align-items-xl-center">
+                                <p style="font-size: 20px;margin-bottom: 0px;color: rgb(255,255,255);margin-right: 16px;">
+                                    <a style="text-decoration: none;color: white;" href="/campgrounds">
+                                        Grocery 
+                                    </a>
+                                </p>
+                                <% foundcategory.forEach(function (value) {%>
+                                    <p style="font-size: 20px;margin-bottom: 0px;color: rgb(255,255,255);margin-right: 16px;">
+                                        <a style="text-decoration: none;color: white;" href="/campgrounds/category/<%=value._id%>/">
+                                            <%= value.name %>
+                                        </a>
+                                    </p>
+                                    <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+
+            <div class="container">
+
+                <div class="row">
+                    <% founddata.forEach(function (valueToCallTheArrayElement){ %>
+                        <% if(valueToCallTheArrayElement.category.id.equals(id)){%>
+
+                            <div class="col-xl-3" style="margin-bottom: 10px;margin-top: 10px;">
+
+
+                                <div>
+                                    <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                        <img src="<%= valueToCallTheArrayElement.image %>" style="width: 270px;height: 250px;">
+                                    </div>
+                                    <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                        <h1 style="font-size: 26px;">
+                                            <%= valueToCallTheArrayElement.name %>
+                                        </h1>
+                                    </div>
+                                    <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                        <h1 style="font-size: 15px;color: rgb(84,84,84);">A Product By
+                                            <%= valueToCallTheArrayElement.shopname %>
+                                        </h1>
+                                    </div>
+                                    <div>
+                                        <p class="d-flex d-xl-flex justify-content-center justify-content-xl-center align-items-xl-center" style="margin-bottom: 3px;font-size: 26px;">RS
+                                            <%= valueToCallTheArrayElement.price %>
+
+                                        </p>
+
+                                    </div>
+                                    <div class="d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center">
+                                        <p>
+                                            <a href="/campgrounds/category/<%=id%>/<%= valueToCallTheArrayElement._id %> " style="background-color: rgb(47,154,204);" class="btn btn-primary">
+                                        More info
+                                    </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <%} %>
+                                <%});%>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <%- include('../partials/footer'); %>

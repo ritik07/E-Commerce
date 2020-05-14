@@ -4,10 +4,11 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStregy = require("passport-local");
 var Admin = require("../models/admin");
-
-//==============
-//Auth Routes Admins
-//=============
+var campgrounddb = require("../models/campgrounds");
+var order = require("../models/order")
+    //==============
+    //Auth Routes Admins
+    //=============
 
 
 //reg form admin
@@ -18,7 +19,7 @@ router.get("/register/admin", function(req, res) {
 //handle sign up logic
 router.post("/register/admin", function(req, res) {
     var newUser = new User({ username: req.body.username });
-    User.register(newUser, req.body.password, { isadmin: req.body.isadmin }, function(err, user) {
+    User.register(newUser, req.body.password, function(err, user) {
         if (err) {
             console.log(err);
             return res.render("admin/register");
@@ -48,6 +49,35 @@ router.post("/login/admin", passport.authenticate("local",
 
     });
 
+//show all orders
+router.get("/campgrounds/:id/address/admin/allorders", isLoggedIn, function(req, res) {
+
+
+        order.find({}, function(err, data) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log(data);
+                    res.render("admin/allorders", { data: data, currentUser: req.user });
+                }
+            })
+            // campgrounddb.findById(req.params.id, function(err, foundid) {
+            //     if (err) {
+            //         console.log(err)
+            //     } else {
+            //         products.push(foundid);
+            //         // console.log(products)
+            //         neworder['product'] = products
+            //         count++;
+            //         if (count == 1) {
+            //             createDb(neworder)
+            //         }
+            //     }
+            // })
+    }
+
+)
+
 //logout
 router.get("/logout", function(req, res) {
     req.logout();
@@ -61,6 +91,7 @@ function isLoggedIn(req, res, next) {
         res.redirect("/login/admin")
     }
 }
+
 //passport config
 
 router.use(require("express-session")({
@@ -68,5 +99,6 @@ router.use(require("express-session")({
     resave: false,
     saveUninitialized: false,
 }));
+
 
 module.exports = router;

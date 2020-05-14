@@ -1,0 +1,61 @@
+<%- include('../partials/header'); %>
+
+    <div class="container">
+
+
+        <header class.<div class="jumbotron">
+            <h1 class="display-3">E-cart</h1>
+            <p>
+                Welcome
+                <%= currentUser.username %>
+            </p>
+            <!-- <p class="lead">
+                <a class="btn btn-primary btn-lg" href="../campgrounds/new" role="button">Add new Component</a>
+            </p> -->
+        </header>
+        <h2>My Orders</h2>
+        <div class="row text-centre clearfix">
+            <% data.forEach(function (valueToCallTheArrayElement){ %>
+
+
+                <div class="center col-sm-6">
+                    <p>
+                        Your order ID is:
+                        <%= valueToCallTheArrayElement._id %>
+                    </p>
+                    <h1>Your Details</h1>
+                    <p>
+                        Name:
+                        <%=valueToCallTheArrayElement.firstname %>
+                            <%= valueToCallTheArrayElement.lastname %>
+                    </p>
+                    <p>
+                        Address:
+                        <%= valueToCallTheArrayElement.address %>
+                    </p>
+                    <p>
+                        Land Mark:
+                        <%= valueToCallTheArrayElement.landmark %>
+                    </p>
+                    <p>
+                        Phone NUmber:
+                        <%= valueToCallTheArrayElement.phonenumber %>
+                    </p>
+                    <h1>Product you Ordered</h1>
+                    <img class="center" src="<%= valueToCallTheArrayElement.product[0].image %> " alt="">
+                    <p>
+                        Name
+                        <%= valueToCallTheArrayElement.product[0].name  %>
+                    </p>
+                    <p>
+                        Price
+                        <%= valueToCallTheArrayElement.product[0].price  %>
+                    </p>
+
+
+                </div>
+        </div>
+        <%  })  %>
+
+            <%- include('../partials/footer'); %>
+    </div>
