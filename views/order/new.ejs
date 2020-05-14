@@ -36,15 +36,15 @@
                     <div style="width: 30%; margin-top: 25px auto;">
                         <div class="form-group">
                             <label for="">First Name</label>
-                            <input class="form-control" type="text" name="firstname" placeholder="First Name">
+                            <input required class="form-control" type="text" name="firstname" placeholder="First Name">
                             <label for="">Last Name</label>
-                            <input class="form-control" type="text" name="lastname" placeholder="Last Name">
+                            <input required class="form-control" type="text" name="lastname" placeholder="Last Name">
                             <label for="">Adress</label>
-                            <input class="form-control" type="text" name="address" placeholder="Address Line">
+                            <input required class="form-control" type="text" name="address" placeholder="Address Line">
                             <label for="">Land Mark</label>
-                            <input class="form-control" type="text" name="landmark" placeholder="Land Mark">
+                            <input required class="form-control" type="text" name="landmark" placeholder="Land Mark">
                             <label for="">Phone Number</label>
-                            <input class="form-control" type="number" name="phonenumber" placeholder="PhoneNumber">
+                            <input required pattern="\d*" minlength="4" class="form-control" type="number" name="phonenumber" placeholder="PhoneNumber">
                         </div>
                         <button class="btn btn-success">Order</button>
 
@@ -59,12 +59,13 @@
 
 
 
-
-
-
             </div>
 
 
+        </div>
 
 
-            <%- include('../partials/footer') %>
+    </div>
+
+
+    <%- include('../partials/footer') %>
