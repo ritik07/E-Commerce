@@ -9,12 +9,21 @@ var express = require("express"),
     seed = require('./seed'),
     Comment = require("./models/comment");
 
+//calling up the routes
+app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use(adressRoutes);
+app.use(authRoutes);
+app.use(adminRoutes);
 
-var commentRoutes = require("./routes/comments"),
-    authRoutes = require("./routes/auth"),
-    campgroundRoutes = require("./routes/campground"),
-    adminRoutes = require('./routes/admin'),
-    adressRoutes = require('./routes/address');
+//calling up the routes
+app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use(adressRoutes);
+app.use(authRoutes);
+app.use(adminRoutes);
+
+
 
 User = require("./models/user")
 campgrounddb = require('./models/campgrounds')
