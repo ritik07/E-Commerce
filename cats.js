@@ -5,6 +5,8 @@ mongoose.connect("mongodb://localhost/cat_app")
 var catSchema = new mongoose.Schema({
     name: String,
     age: Number,
+    breed: String,
+    Bob: Number,
     termerpent: String,
 });
 
