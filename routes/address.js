@@ -28,6 +28,18 @@ router.get("/campgrounds/:id/address", isLoggedIn, function(req, res) {
 
 })
 
+router.get("/campgrounds/:id/address" function(req, res) {
+    campgrounddb.findById(req.params.id, function(err, foundid) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render("order/newitem", { itemid: foundid, currentUser: req.user })
+        }
+    })
+
+})
+
+
 //ADD ADDRESS TO DATABASE
 router.post("/campgrounds/:id/address", isLoggedIn, function(req, res) {
     const products = []
