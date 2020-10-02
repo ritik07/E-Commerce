@@ -31,6 +31,7 @@ router.get("/campgrounds/:id/address", isLoggedIn, function(req, res) {
 //ADD ADDRESS TO DATABASE
 router.post("/campgrounds/:id/address", isLoggedIn, function(req, res) {
     const products = []
+    var fullName = req.body.firstname+req.body.lastname;
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
     var address = req.body.address;
